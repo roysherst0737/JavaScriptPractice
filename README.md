@@ -1,1 +1,1 @@
-# JavaScriptPractice
+### Personal practice using Javascript.
