@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./vendors/animate_css/animate.min.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      h1.title1{
+        border: 1px solid red;
+        /* animation-duration: 3s; */
+        /* animation-iteration-count: 1; */
+        /* animation-delay: 1s; */
+        /* animation-direction: normal; */
+        /* animation-fill-mode: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    animate__repeat-1
+    animate__repeat-2
+    animate__repeat-3
+    animate__infinite
+    -->
+    <h1 class="title1">這是標題</h1>
+    <button type="button" id="the_button">按鈕</button>
+
+    <script>
+      // Animate CSS 套件提供的 JS 函式
+      const animateCSS = (element, animation, prefix = 'animate__') =>
+        // We create a Promise and return it
+        new Promise((resolve, reject) => {
+          const animationName = `${prefix}${animation}`;
+          const node = document.querySelector(element);
+
+          node.classList.add(`${prefix}animated`, animationName);
+
+          // When the animation ends, we clean the classes and resolve the Promise
+          function handleAnimationEnd(event) {
+            event.stopPropagation();
+            node.classList.remove(`${prefix}animated`, animationName);
+            resolve('Animation ended');
+          }
+
+          node.addEventListener('animationend', handleAnimationEnd, {once: true});
+        });
+
+
+      var the_button_el = document.getElementById("the_button");
+      the_button_el.addEventListener("click", function(){
+        //alert("abc");
+        // var h1_el = document.getElementsByClassName("title1")[0];
+        // h1_el.classList.add("animate__animated");
+        // h1_el.classList.add("animate__bounce");
+        /*animateCSS("h1.title1", "bounce").then((message) => {
+          console.log(message);
+          //alert("動畫效果執行完時，會執行這裡的程式");
+        });
+        */
+        // 另個寫法
+        animateCSS("h1.title1", "bounce").then(function(message){
+          console.log(message);
+        });
+
+      });
+    </script>
+  </body>
+</html>

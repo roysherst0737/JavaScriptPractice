@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      div.right_sidebar{
+        /* border: 1px solid black; */
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translate(100%, -50%);
+
+        background-color: black;
+        color: white;
+        width: 200px;
+        height: 500px;
+        border-radius: 5px 0 0 5px;
+        padding: 10px;
+
+        transition: transform 1s;
+      }
+      div.right_sidebar.-open{
+
+        transform: translate(0%, -50%);
+      }
+      div.right_sidebar button.btn_drawer{
+        border: 1px solid black;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-100%, -50%);
+
+        width: 1rem;
+        box-sizing: content-box;
+        padding: 5px;
+        line-height: 1.8;
+        border-radius: 5px 0 0 5px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <p>段落</p>
+    <div class="right_sidebar">
+      <button type="button" class="btn_drawer">展開</button>
+      右側的內容右側的內容右側的內容右側的內容
+    </div>
+
+
+    <script src="./vendors/jquery/jquery.js"></script>
+    <script>
+      $("button.btn_drawer").on("click", function(){
+        $(this).closest("div.right_sidebar").toggleClass("-open");
+      });
+    </script>
+  </body>
+</html>

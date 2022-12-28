@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+      @keyframes rotation{
+        /* 0% 可改寫成 from */
+        0% {
+          transform: rotate(0deg);
+          opacity: 1;
+        }
+        25%, 75% {
+          box-shadow: 0 0 10px 5px black;
+        }
+        50% {
+          opacity: .3;
+          box-shadow: 0 0 0px 0px black;
+        }
+        /* 75% {
+          box-shadow: 0 0 10px 5px black;
+        } */
+        /* 100% 可改寫成 to */
+        100% {
+          transform: rotate(360deg);
+          opacity: 1;
+        }
+      }
+
+      @keyframes move_to_right{
+        0% {
+          margin-left: 0px;
+        }
+        50% {
+          margin-left: 100px;
+        }
+        100% {
+          margin-left: 0px;
+        }
+      }
+      @keyframes go_to_right{
+        0% {
+          left: 0;
+        }
+        100% {
+          left: calc(100% - 150px);
+        }
+      }
+
+      *{
+        box-sizing: border-box;
+      }
+
+      div.block{
+        border: 1px solid red;
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      div.block.-rotate{
+        /* animation-name: rotation, move_to_right; */
+        animation-name: go_to_right;
+        /* animation-name: rotation; */
+        /* animation-duration: 3s, 6s; */
+        /* animation-duration: 3s; */
+        animation-duration: 5s;
+
+        /* 1(預設) | infinite */
+        animation-iteration-count: 3;
+
+        /* normal(預設) | reverse | alternate | alternate-reverse */
+        animation-direction: normal;
+
+        /* 0s(預設) */
+        animation-delay: 0s;
+
+        /* none(預設) | forwards | backwards | both */
+        animation-fill-mode: none;
+
+        /*
+        1、ease 相當於 cubic-bezier(.25, .1, .25, 1)
+        2、linear 相當於 cubic-bezier(0, 0, 1, 1)
+        3、ease-in 相當於 cubic-bezier(.42, 0, 1, 1)
+        4、ease-out 相當於 cubic-bezier(0, 0, .58, 1)
+        5、ease-in-out 相當於 cubic-bezier(.42, 0, .58, 1)
+        6、cubic-bezier(n, n, n, n)
+        7、steps(int, start | end)
+        */
+        animation-timing-function: ease;
+      }
+      div.block.-pause{
+        /* running(預設) | paused */
+        animation-play-state: running;
+      }
+      div.block img{
+        width: 100%;
+      }
+
+      div.parent_block{
+        border: 1px solid black;
+        height: 152px;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>animation 相關屬性</h1>
+
+    <div class="parent_block">
+      <div class="block" id="my_block">
+        <img src="https://picsum.photos/id/174/200/200">
+      </div>
+    </div>
+
+    <button type="button" id="the_btn">圓形旋轉</button>
+
+    <script>
+      var the_btn_el = document.getElementById("the_btn");
+      the_btn_el.addEventListener("click", function(){
+        //alert("test");
+        var block_el = document.getElementsByClassName("block")[0];
+        block_el.classList.toggle("-rotate");
+      });
+
+
+      var my_block_el = document.getElementById("my_block");
+      my_block_el.addEventListener("click", function(){
+        //alert("test2");
+        var block_el = document.getElementsByClassName("block")[0];
+        block_el.classList.toggle("-pause");
+      });
+
+      my_block_el.addEventListener("animationstart", function(){
+        console.log("動畫開始執行");
+      });
+      my_block_el.addEventListener("animationiteration", function(){
+        console.log("動畫下一次的執行");
+      });
+      my_block_el.addEventListener("animationend", function(){
+        console.log("動畫結束");
+      });
+    </script>
+  </body>
+</html>

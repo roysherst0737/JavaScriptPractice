@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      div.other_block{
+        border: 1px solid red;
+        margin-top: 30px;
+      }
+
+      div.outer_block{
+        border: 1px solid blue;
+        display: inline-block;
+        position: relative;
+      }
+      div.outer_block:hover div.submenu_block{
+        /* display: block; */
+        opacity: 1;
+        z-index: 1;
+        transition: opacity 1s;
+      }
+      /* 次選單 */
+      div.outer_block div.submenu_block{
+        border: 1px solid black;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: lightgray;
+        width: 100%;
+
+        /* display: none; */
+        opacity: 0;
+        z-index: -1;
+
+        transition: opacity 1s, z-index 0s ease 1s;
+      }
+      div.outer_block div.submenu_block ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      div.outer_block div.submenu_block ul > li > a{
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="outer_block">
+      <div class="submenu_item">有次選單</div>
+      <div class="submenu_block">
+        <ul>
+          <li><a href="https://tw.yahoo.com" target="_blank">項目一</a></li>
+          <li><a href="https://tw.yahoo.com" target="_blank">項目二</a></li>
+          <li><a href="https://tw.yahoo.com" target="_blank">項目三</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="other_block">
+      <p>下方內容</p>
+      <img src="https://picsum.photos/seed/picsum/200/300">
+    </div>
+
+  </body>
+</html>

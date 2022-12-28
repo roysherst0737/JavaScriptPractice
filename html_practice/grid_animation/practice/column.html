@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      div.test_column{
+        border: 1px solid red;
+
+        /* height: 400px; */
+        /* auto(預設) */
+        column-count: 3;
+
+        /* balance(預設) | auto */
+        column-fill: balance;
+
+        /* font-size: 40px; */
+        column-gap: default;
+
+        column-rule: 3px double blue;
+        /* text-align: justify; */
+        /* 等同於 */
+        /* column-rule-width: 3px;
+        column-rule-style: double;
+        column-rule-color: blue; */
+
+        /* padding: 20px 0; */
+
+        /* auto(預設) */
+        /* column-width: 100px; */
+      }
+      div.test_column h1{
+        /* none(預設) | all */
+        column-span: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Column 相關屬性</h1>
+
+    <div class="test_column">
+      <h1>這是標題這是標題這是標題這是標題這是標題</h1>
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落。
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，
+      這是測試的文字段落，這是測試的文字段落，這是測試的文字段落，這是測試的文字段落。
+    </div>
+  </body>
+</html>

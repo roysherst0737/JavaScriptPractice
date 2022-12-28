@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      @keyframes sprite1{
+        0%{
+          left: 0;
+        }
+        100%{
+          left: -2000px;
+        }
+      }
+      div.sprite_block1{
+        border: 1px solid red;
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+      }
+      div.sprite_block1 img{
+        position: relative;
+        /* left: -1750px; */ /* 250 * 7 */
+
+        animation-name: sprite1;
+        animation-duration: 1s;
+        animation-timing-function: steps(8, end);
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes sprite2{
+        0%{
+          background-position: 0%;
+        }
+        100%{
+          background-position: 114.4%;
+        }
+      }
+
+      div.sprite_block2{
+        margin-top: 20px;
+        border: 1px solid blue;
+        width: 250px;
+        height: 250px;
+        background-image: url("./images/sprite_finish.png");
+        background-repeat: no-repeat;
+
+        /*background-position: 0%;*/ /* 100% / 7 */ /* 14.3 * 8 = 114.4% */
+        animation-name: sprite2;
+        animation-duration: 1s;
+        animation-timing-function: steps(8, end);
+        animation-iteration-count: infinite;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="sprite_block1">
+      <img src="./images/sprite_finish.png">
+    </div>
+
+
+    <div class="sprite_block2"></div>
+  </body>
+</html>

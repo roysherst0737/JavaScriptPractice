@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./vendors/fontawesome/css/all.min.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      /* ========== 模式區域 ========== */
+      #product_list{
+        /* border: 1px solid black; */
+      }
+      #product_list ul.view_mode{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        /* border: 1px solid red; */
+        display: flex;
+      }
+      #product_list ul.view_mode > li{
+        /* border: 1px solid blue; */
+        text-align: center;
+        font-size: 0;
+        margin-right: 5px;
+      }
+      #product_list ul.view_mode > li button{
+        cursor: pointer;
+        margin: 0;
+        padding: 5px 10px;
+        background: none;
+        border: 1px solid black;
+        /* border-left: 0; */
+        font-size: 24px;
+        opacity: .1;
+        color: black; /* safari */
+        border-radius: 5px 5px 0 0;
+      }
+      #product_list ul.view_mode > li button:hover{
+        opacity: .5;
+      }
+      #product_list ul.view_mode > li button.-on{
+        opacity: 1;
+        border-bottom: 0;
+        position: relative;
+        background-color: #fbdeab;
+      }
+      #product_list ul.view_mode > li button.-on::after{
+        display: block;
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: -1px;
+        height: 1px;
+        width: 100%;
+        background-color: #fbdeab;
+      }
+
+
+      /* ========== 商品區域 ========== */
+      #product_list section.product_list_sec {
+        border: 1px solid black;
+        margin-top: -1px;
+        background-color: #fbdeab;
+      }
+
+      #product_list section.product_list_sec ul.product_list{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      #product_list section.product_list_sec ul.product_list > li{
+        /* border: 1px solid black; */
+      }
+      #product_list section.product_list_sec ul.product_list > li a {
+        display: block;
+        border: 1px solid #9393fd;
+        text-decoration: none;
+        color: black;
+        height: 100%;
+        background-color: #eee;
+      }
+      #product_list section.product_list_sec ul.product_list > li a h1.title1{
+        font-size: 24px;
+        margin: 0;
+      }
+      #product_list section.product_list_sec ul.product_list > li a div.img_block{
+        /* border: 1px solid red; */
+        font-size: 0;
+      }
+      #product_list section.product_list_sec ul.product_list > li a div.img_block img{
+        width: 100%;
+      }
+      #product_list section.product_list_sec ul.product_list > li a p.para{
+        margin: 0;
+      }
+
+      /* ========== 橫向排版 ========== */
+      #product_list section.product_list_sec ul.product_list.list_horizontal{
+        display: grid;
+        grid-template-columns: repeat(5, calc((100% - 80px) / 5));
+        gap: 20px;
+        padding: 20px;
+      }
+      #product_list section.product_list_sec ul.product_list.list_horizontal > li a h1.title1{
+        padding: 5px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      #product_list section.product_list_sec ul.product_list.list_horizontal > li div.img_block{
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+      #product_list section.product_list_sec ul.product_list.list_horizontal > li div.img_block img{
+        /*  上下遮掉 */
+
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+
+        /*  左右遮掉 */
+        /* position: absolute;
+        width: auto;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%); */
+      }
+
+      #product_list section.product_list_sec ul.product_list.list_horizontal > li a p.para{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      /* ========== 直向排版 ========== */
+      #product_list section.product_list_sec{
+        overflow-x: auto;
+      }
+      #product_list section.product_list_sec ul.product_list.list_vertical{
+        display: inline-grid;
+        grid-template-rows: repeat(5, auto);
+        grid-auto-columns: 300px;
+        grid-auto-flow: column;
+        gap: 20px;
+        padding: 20px;
+        /* border: 1px solid red; */
+      }
+      #product_list section.product_list_sec ul.product_list.list_vertical > li a h1.title1{
+        padding: 5px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      #product_list section.product_list_sec ul.product_list.list_vertical > li div.img_block{
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+      #product_list section.product_list_sec ul.product_list.list_vertical > li div.img_block img{
+        /*  上下遮掉 */
+        /* position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%); */
+
+
+        /*  左右遮掉 */
+        position: absolute;
+        width: auto;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #product_list section.product_list_sec ul.product_list.list_vertical > li a p.para{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      /* ========== 瀑布流排版 ========== */
+      #product_list section.product_list_sec ul.product_list.list_waterfall{
+        column-count: 5;
+        /* column-width: 200px; */
+        padding: 20px 20px 0 20px;
+        column-gap: 20px;
+        /* border: 1px solid red; */
+      }
+      #product_list section.product_list_sec ul.product_list.list_waterfall > li{
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+      #product_list section.product_list_sec ul.product_list.list_waterfall > li a h1.title1{
+        padding: 5px 0;
+        /* white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; */
+      }
+      #product_list section.product_list_sec ul.product_list.list_waterfall > li div.img_block{
+        /* height: 200px;
+        overflow: hidden;
+        position: relative; */
+      }
+      #product_list section.product_list_sec ul.product_list.list_waterfall > li div.img_block img{
+        /*  上下遮掉 */
+        /* position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%); */
+
+
+        /*  左右遮掉 */
+        /* position: absolute;
+        width: auto;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%); */
+      }
+      #product_list section.product_list_sec ul.product_list.list_waterfall > li a p.para{
+        /* display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden; */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>商品列表檢視模式</h1>
+
+    <article id="product_list">
+      <ul class="view_mode">
+        <li>
+          <button type="button" data-class="list_horizontal" class="btn -on">
+            <i class="fas fa-bars"></i>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-class="list_vertical" class="btn">
+            <i class="fas fa-bars fa-rotate-90"></i>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-class="list_waterfall" class="btn">
+            <i class="fas fa-align-left fa-rotate-90"></i>
+          </button>
+        </li>
+      </ul>
+      <section class="product_list_sec">
+        <ul class="product_list list_horizontal">
+          <!-- 1 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">1這是商品名稱是商品名稱是商品名稱是商品名稱是商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/870/200/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 2 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">2這是商品名稱商品名稱商品名稱商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/871/400/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 3 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">3這是商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/872/600/350">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 4 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">4這是商品描述這是商品描述這是商品描述這述</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/873/400/450">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 5 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">5這是商品名稱商品名稱商品名稱商品名稱商品名稱商品名稱商品名稱商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/874/200/250">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描描述</p>
+            </a>
+          </li>
+
+          <!-- 6 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">6這是商這是商這是商這是商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/875/250/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 7 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">7這是商品名稱名稱名稱名稱名稱名稱名稱名稱名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/876/450/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 8 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">8這是商品名稱這是商品這是商品這是商品這是商品</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/877/580/400">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 9 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">9這是商品描述這是商品描述這是商品描述這述這是商品描述這是商品描述這述這是商品描述這是商品描述這述</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/878/300/450">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 10 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">10這是商品名稱商品名稱商品名稱商品名稱商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/879/400/280">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描描述</p>
+            </a>
+          </li>
+
+          <!-- 11 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">11這是商品名稱品名稱品名稱品名稱品名稱品名稱品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/880/200/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 12 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">12這是商品名稱品名稱品名稱品名稱品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/881/400/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 13 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">13這是商品名稱是商品名稱是商品名稱是商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/882/600/350">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 14 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">14這是商品描述這是商品描述這是商品描述這述這是商品描述這是商品描述這述這是商品描述這是商品描述這述</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/883/400/450">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 15 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">15這是商品名稱是商品名稱是商品名稱是商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/884/200/250">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描描述</p>
+            </a>
+          </li>
+
+          <!-- 16 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">16這是商品名稱商品名稱商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/885/250/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 17 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">17這是商品名稱是商品名稱是商品名稱是商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/886/450/300">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述這是商品描述</p>
+            </a>
+          </li>
+          <!-- 18 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">18這是商品名稱商品名稱商品名稱商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/887/580/400">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 19 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">19這是商品描述這是商品描述這是商品描述這述</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/888/300/450">
+              </div>
+              <p class="para">這是商品描述</p>
+            </a>
+          </li>
+          <!-- 20 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">20這是商品名稱商品名稱商品名稱商品名稱商品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/889/400/280">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描描述</p>
+            </a>
+          </li>
+
+          <!-- 21 -->
+          <li>
+            <a href="#">
+              <h1 class="title1">21這是商品名稱品名稱品名稱品名稱品名稱</h1>
+              <div class="img_block">
+                <img src="https://picsum.photos/id/890/400/600">
+              </div>
+              <p class="para">這是商品描述這是商品描述這是商品描述這是商品描述這是商品描描述</p>
+            </a>
+          </li>
+
+        </ul>
+      </section>
+    </article>
+
+    <script src="./vendors/jquery/jquery.js"></script>
+    <script>
+      $("button.btn").on("click", function(){
+        $(this).closest("ul.view_mode").find("button.btn").removeClass("-on");
+        $(this).addClass("-on");
+        let target_class = $(this).attr("data-class");
+        $("#product_list").find("ul.product_list").removeClass("list_horizontal list_vertical list_waterfall").addClass(target_class);
+      });
+    </script>
+  </body>
+</html>

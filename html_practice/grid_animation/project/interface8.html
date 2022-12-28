@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      div.grid_container{
+        border: 1px solid red;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 10px;
+        padding: 10px;
+
+        grid-template-areas: "header header section" "aside main section" "aside footer footer";
+      }
+      div.grid_container .grid_item{
+        border: 1px solid blue;
+      }
+
+      div.grid_container header.grid_item{
+        /* 方式一 */
+        /* grid-column: 1 / 3; */
+        grid-area: header;
+      }
+      div.grid_container aside.grid_item{
+        /* grid-row: 2 / 4; */
+        grid-area: aside;
+      }
+      div.grid_container main.grid_item{
+        /* grid-column: 2 / 3; */
+        grid-area: main;
+      }
+      div.grid_container section.grid_item{
+        /* grid-column: 3 / 4; */
+        /* grid-row: 1 / 3; */
+        grid-area: section;
+      }
+      div.grid_container footer.grid_item{
+        /* grid-column: 2 / 4; */
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="grid_container">
+      <header class="grid_item">
+        這是 header<br>
+        這是 header<br>
+        這是 header<br>
+      </header>
+      <aside class="grid_item">
+        這是 aside<br>
+        這是 aside<br>
+        這是 aside<br>
+      </aside>
+      <main class="grid_item">
+        這是 main<br>
+        這是 main<br>
+        這是 main<br>
+      </main>
+      <section class="grid_item">
+        這是 section<br>
+        這是 section<br>
+        這是 section<br>
+      </section>
+      <footer class="grid_item">
+        這是 footer<br>
+        這是 footer<br>
+        這是 footer<br>
+      </footer>
+    </div>
+
+  </body>
+</html>

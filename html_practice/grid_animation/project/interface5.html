@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      @keyframes loading {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      div.loading_icon{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 3px solid hsla(0, 50%, 80%, .5);
+        border-top: 3px solid hsla(0, 100%, 50%, 1);
+        border-radius: 50%;
+
+        /* transform: rotate(360deg); */
+
+        animation-name: loading;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading_icon"></div>
+  </body>
+</html>

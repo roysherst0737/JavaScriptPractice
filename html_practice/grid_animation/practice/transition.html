@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+
+      div.block{
+        border: 1px solid red;
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+
+        border-radius: 0%;
+
+        /* transition-property: border-radius, width, height; */
+        /* transition-duration: 3s, 3s, 3s; */
+
+        /* ease(預設) | linear | ease-in | ease-out | ease-in-out */
+        /* transition-timing-function: ease, ease, ease; */
+        /* transition-timing-function: linear; */
+
+        /* transition-delay: 0s, 3s, 3s; */
+
+        /* 簡寫1 */
+        /* transition-property | transition-duration | transition-timing-function | transition-delay */
+        /* transition: all 1s ease 0s; */
+
+        /* 簡寫2 */
+        transition: border-radius 3s linear 0s, width 3s linear 3s, height 3s linear 3s;
+      }
+      div.block.-circle{
+        border-radius: 50%;
+
+        width: 100px;
+        height: 100px;
+      }
+      div.block img{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>transition 相關屬性</h1>
+
+    <div class="block">
+      <img src="https://picsum.photos/seed/picsum/200/300">
+    </div>
+
+    <button type="button" id="the_btn">正方形/圓形 切換</button>
+
+    <script>
+      var the_btn_el = document.getElementById("the_btn");
+      the_btn_el.addEventListener("click", function(){
+        //alert("test");
+        var block_el = document.getElementsByClassName("block")[0];
+        block_el.classList.toggle("-circle");
+      });
+    </script>
+  </body>
+</html>

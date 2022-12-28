@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      @keyframes wiggle {
+        0%, 20%, 40%, 60%, 80%, 100% {
+          left: 0;
+        }
+        10% {
+          left: -10px;
+        }
+
+        30% {
+          left: 10px;
+        }
+
+        50% {
+          left: -10px;
+        }
+
+        70% {
+          left: 10px;
+        }
+
+        90% {
+          left: -10px;
+        }
+      }
+      div.parent_block{
+        border: 1px solid gray;
+        display: inline-block;
+        padding: 10px;
+        margin-left: 100px;
+        margin-top: 100px;
+      }
+      div.btn_block{
+        margin-top: 10px;
+      }
+      input.input_text{
+        border: 1px solid gray;
+        border-radius: 5px;
+        height: 30px;
+        padding: 5px 10px;
+        position: relative;
+        /* left: 0px; */
+      }
+      input.input_text.-wiggle{
+        animation-name: wiggle;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="parent_block">
+      <input type="text" class="input_text" placeholder="輸入文字">
+      <div class="btn_block">
+        <button type="button" class="trigger">資料送出</button>
+      </div>
+    </div>
+
+    <script src="./vendors/jquery/jquery.js"></script>
+    <script>
+      $("button.trigger").on("click", function(){
+        $("input.input_text").addClass("-wiggle");
+      });
+      $("input.input_text").on("animationend", function(){
+        //console.log("動畫效果執行結束");
+        $(this).removeClass("-wiggle");
+      });
+    </script>
+  </body>
+</html>
