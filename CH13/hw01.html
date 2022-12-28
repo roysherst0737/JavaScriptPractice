@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hw01</title>
+</head>
+<body>
+
+    <span>事件監聽練習：</span>
+    <input id="hw1">
+
+    <script>
+    // 請設計一網頁，僅有一個<input>，監聽其click、change、input、focus、blur，
+    // 在監聽器中印出 日期時間、事件名稱
+    const hw1 = document.getElementById('hw1');
+    hw1.onclick = () => alert(new Date() + "\n事件名稱：click");
+    hw1.onchange = () => alert(new Date() + "\n事件名稱：change");
+    hw1.oninput = () => alert(new Date() + "\n事件名稱：input");
+    hw1.onfocus = () => alert(new Date() + "\n事件名稱：focus");
+    hw1.onblur = () => alert(new Date() + "\n事件名稱：blur");
+    </script>
+</body>
+</html>

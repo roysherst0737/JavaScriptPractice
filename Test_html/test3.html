@@ -1,0 +1,18 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <input>
+    <script>
+        const input = document.querySelector('input');
+        const eventNames = ['click', 'change', 'input', 'focus', 'blur'];
+        for (let name of eventNames) {
+            input.addEventListener(name, () => console.log(`${name}事件發生了呦！`));
+            // input[`on${name}`] = () => console.log(`${name}事件發生了呦！`);
+        }
+    </script>
+</body>
+
+</html>

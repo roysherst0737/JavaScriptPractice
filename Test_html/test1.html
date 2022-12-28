@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloWorld</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <script>
+       if (confirm('xxx'))  {
+        alert('使用者選「確定」');
+       } else {
+        alert('使用者選「取消」');
+       }
+
+       const result = prompt('網站端想說的話', '預設值');
+       if (result) {
+            alert(result);
+       }
+
+       while (true) { //無限彈出視窗(現在瀏覽器會自動封鎖)
+            const newWindow = open('www.yahoo.com.tw');
+       }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw04</title>
+</head>
+<body>
+    <div id="nameList">
+        <label for="username">帳號: </label>
+        <input type="text" id="username">
+        <br>
+        <label for="password">密碼: </label>
+        <input type="text" id="password">
+        <br>
+        <button>登入</button>
+    </div>
+
+    <script>
+    /**
+     * 將密碼<input>的type屬性值改成’password’
+     * 替 帳號/密碼 的<input>加上class=“login”
+     */
+        const passtype = document.getElementById("password");
+              passtype.removeAttribute('type');
+              passtype.setAttribute('type','password');
+
+        const addclass = document.querySelectorAll('input');
+              addclass[0].setAttribute('class','login');
+              addclass[1].setAttribute('class','login');
+        
+    </script>
+</body>
+</html>

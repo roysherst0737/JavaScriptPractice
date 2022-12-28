@@ -1,0 +1,64 @@
+<html>
+
+<body>
+    <h1>商品列表</h1>
+    <a href="result.html">前往結帳囉！</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>書名</th>
+                <th>書商</th>
+                <th>單價</th>
+                <th>作者</th>
+                <th>圖</th>
+                <th>加入購物車</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        const tbody = document.querySelector('tbody');
+        const url = 'http://10.1.5.65:8080/javascript-shoppingcart-book/book/readAll';
+        fetch(url)
+            .then(resp => resp.json())
+            .then(bookList => {
+                for (let book of bookList) {
+                    tbody.insertAdjacentHTML('beforeend', `
+                    <tr>
+                        <td>${book.id}</td>
+                        <td>${book.title}</td>
+                        <td>${book.companyName}</td>
+                        <td>${book.unitPrice}</td>
+                        <td>${book.author}</td>
+                        <td><img src="${getImgUrl(book.img)}" style="width:100px"></td>
+                        <td><button onclick="add(${book.id})">ADD</button></td>
+                     </tr>
+                    `);
+                }
+            });
+
+        function add(id) {
+            const KEY = 'shoppingCart'
+            const shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart')) ?? [];
+            shoppingCart.push(id);
+            sessionStorage.setItem(KEY, JSON.stringify(shoppingCart));
+
+        }
+        
+        function getImgUrl(base64Str) {
+            const binaryStr = atob(base64Str);
+            let len = binaryStr.length;
+            const uint8Array = new Uint8Array(len);
+            while (len--) {
+                uint8Array[len] = binaryStr.charCodeAt(len);
+            }
+            const blob = new Blob([uint8Array]);
+            return URL.createObjectURL(blob);
+        }
+
+    </script>
+
+</body>
+
+</html>

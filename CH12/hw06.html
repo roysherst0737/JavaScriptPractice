@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw06</title>
+
+    <style>
+        .xxx {
+            background-color: coral
+        }
+        .yyy {
+            background-color: cornflowerblue
+        }
+    </style>
+    
+</head>
+<body>
+    <div>
+        <div>
+            <span>A</span>
+            <span>B</span>
+            <span>C</span>
+        </div>
+        <div>
+            <span>D</span>
+            <span>E</span>
+            <span>F</span>
+        </div>
+        <div>
+            <span>G</span>
+            <span>H</span>
+            <span>I</span>
+        </div>
+    </div>
+    <script>
+    /**
+     * 續上題，請使用JavaScript，將<span>中的文字替換
+     */
+        const x = document.querySelectorAll('span');
+            x[0].setAttribute('class','xxx');
+            x[3].setAttribute('class','xxx');
+            x[6].setAttribute('class','xxx');
+        const y = document.querySelectorAll('span');
+            y[2].setAttribute('class','yyy');
+            y[5].setAttribute('class','yyy');
+            y[8].setAttribute('class','yyy');
+
+        const a = ['甲','乙','丙','丁','戊','己','庚','辛','壬'];
+        for(let i = 0; i < 9; i++){
+            document.querySelectorAll('span')[i]. textContent =a[i];
+        }
+        
+    </script>
+</body>
+</html>

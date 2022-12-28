@@ -1,0 +1,19 @@
+<!-- 請設計一網頁，進入網頁時，以對話框要求使用者輸入暱稱，預設暱稱為’Guest’，使用者輸入完後，以對話框顯示 Hello [暱稱] -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw01</title>
+</head>
+<body>
+    <h1>homework1</h1>
+    <script>
+       const result = prompt('請輸入使用者暱稱', 'Guest');
+       if (result) {
+            alert('Hello' + result);
+       }
+    </script>   
+</body>
+</html>

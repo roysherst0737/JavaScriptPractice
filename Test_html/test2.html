@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測試首頁</title>
+</head>
+
+<body>
+    <h1>Hello, Js</h1>
+        <a href="https://developer.mozilla.org/">MDN</a>
+        <br>
+        <a href="https://www.w3schools.com/">W3Schools</a>
+    <br>
+    <input type="checkbox" value="js" name="skill" id = "xxx">
+    <label for ="xxx"> JavaScript</label>
+    <input type="checkbox" value="java" name="skill" id = "xxxx">
+    <label>Java</label>
+    <input type="checkbox" value="mysql" name="skill">
+    <label>MySQL</label>
+
+    <script>
+document.querySelector("#xxxx").check = true;
+
+        // const checkboxes = document.querySelectorAll('input');
+        // for (let checkbox of checkboxes) {
+        //     checkbox.checked = true;
+        // }
+
+        document.querySelectorAll('label') //將所有標籤改成指定的內容
+                .forEach(label => label.textContent = '技能');
+    </script>
+</body>
+</html>

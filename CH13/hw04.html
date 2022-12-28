@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw04</title>
+</head>
+<body>
+    <span>身分證字號：</span><input id="Id" value="">
+    <br>
+    <span>願意施打的疫苗廠牌：</span>
+    <select>
+        <option selected disabled>---請選擇---</option>
+        <option>AZ</option>
+        <option>莫德納</option>
+        <option>BNT</option>
+        <option>高端</option>
+    </select>
+
+    <script>
+        const Id = document.getElementById('Id');
+        Id.addEventListener('blur', function(){
+            let idVerify = /^[A-z][0-9]{9}$/
+            if (!idVerify.test(Id.value)) {
+                alert('身分證輸入錯誤，請修改！');
+                // Id.value=""; 練習自動清空已輸入資料(好像不太實用)
+            } else { };
+        });
+
+    </script>
+    
+</body>
+</html>

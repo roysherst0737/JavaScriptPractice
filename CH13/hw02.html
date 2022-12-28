@@ -1,0 +1,19 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <button id="pre">上一頁</button>
+    <button id="next">下一頁</button>
+    <script>
+        // 請設計一網頁，含有2個<button>，分別用來 回到上一頁、移至下一頁
+        const pre = document.querySelector('#pre');
+        const next = document.querySelector('#next');
+
+        pre.addEventListener('click', () => history.back());
+
+        next.addEventListener('click', () => history.forward());
+    </script>
+</body>
+</html>

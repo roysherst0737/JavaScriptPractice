@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw03</title>
+</head>
+<body>
+    <select id="select1">
+        <option value="-1" selected disabled>--- 請選擇縣市 ---</option>
+        <option value="台北市">台北市</option>
+        <option value="新北市">新北市</option>
+        <option value="桃園市">桃園市</option>
+        <option value="新竹縣">新竹縣</option>
+        <option value="新竹市">新竹市</option>
+    </select>
+    <br>
+    <select id="select2">
+        <option value="-1" selected disabled>--- 站名 ---</option>        
+    </select>
+
+    <script>
+        const stationObj = {
+            '台北市': ['南港', '松山', '台北', '萬華'],
+            '新北市': ['板橋', '樹林'],
+            '桃園市': ['桃園', '中壢'],
+            '新竹縣': ['湖口', '竹北'],
+            '新竹市': ['北新竹', '新竹']
+        };
+        const select2 = document.querySelector('#select2');
+        document.querySelector('#select1').addEventListener('change', e => {
+            const city = e.target.value;
+            const stationArr = stationObj[city]; 
+            select2.textContent = '';
+            for (let station of stationArr) {
+                const option = document.createElement('option');
+                option.textContent = station;
+                select2.append(option);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

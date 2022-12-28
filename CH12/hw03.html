@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw03 用script產生表格</title>
+</head>
+<body>
+    <!-- <table border="1">
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>使用者名</th>
+                <th>密碼</th>
+                <th>暱稱</th>
+                <th>帳號啟用否</th>
+                <th>註冊日期時間</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>william1234</td>
+                <td>P@ssw0rd</td>
+                <td>William</td>
+                <td>true</td>
+                <td>2016/12/05 12:34:56</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>vera1211</td>
+                <td>12345678</td>
+                <td>Vera</td>
+                <td>false</td>
+                <td>2019/01/07 11:22:33</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>reds1210</td>
+                <td>!QAZ2wsx</td>
+                <td>Reds</td>
+                <td>true</td>
+                <td>2015/03/06 10:20:30</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <script>
+        const colNames = ['編號', '使用者名', '密碼', '暱稱', '帳號啟用否', '註冊日期時間'];
+        const users = [
+            { id: 1, username: 'william1234', password: 'P@ssw0rd', nickname: 'William', pass: true, registerDateTime: '2016/12/05 12:34:56' },
+            { id: 2, username: 'vera1211', password: '12345678', nickname: 'Vera', pass: false, registerDateTime: '2019/01/07 11:22:33' },
+            { id: 3, username: 'reds1210', password: '!QAZ2wsx', nickname: 'Reds', pass: true, registerDateTime: '2015/03/06 10:20:30' }
+        ];
+
+        const table = document.createElement('table');
+        table.border = '1';
+        table.append(getThead());
+        table.append(getTbody());
+        document.body.prepend(table);
+
+        function getThead() {
+            const thead = document.createElement('thead');
+
+            const tr = document.createElement('tr');
+                for(let name of colNames) {
+                    const th = document.createElement('th');
+                    th.textContent = name;
+                    tr.append(th);
+                }
+                thead.append(tr);
+                return thead;
+        }
+
+        function getTbody() {
+            const tbody = document.createElement('tbody');
+            for (let user of users) {
+                const tr = document.createElement('tr');
+                for (let key in user) {
+                    const value = user[key];
+                    const td = document.createElement('td');
+                    td.textContent = value;
+                    tr.append(td);
+                }
+                tbody.append(tr);
+            }
+            return tbody;
+        }
+
+    </script>
+    
+</body>
+</html>

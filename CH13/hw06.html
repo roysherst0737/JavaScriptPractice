@@ -1,0 +1,18 @@
+<html>
+
+<body>
+    <div>
+        <input type="file" accept="image/*" id="file0">
+        <img id="img0" src="aaa.png">
+    </div>
+   
+    <script>
+        document.querySelector('#file0').addEventListener('change', e => {
+            const img = document.querySelector('#img0');
+            img.src = URL.createObjectURL(e.target.files[0]);
+        });
+    </script>
+
+</body>
+
+</html>
