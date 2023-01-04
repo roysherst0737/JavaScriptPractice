@@ -72,3 +72,19 @@ console.log('一維陣列: ', twoDimArrEx[1]);
 
 // 印出二維陣列所有元素
 console.log('二維陣列: ', twoDimArrEx);
+
+//找出陣列中最大的數字
+var numbers = [3,342,23,22,124, 'a'];//陣列裡可以放不同的型別
+var max = 0;
+for(var i=0;i<numbers.length;i++){
+  if(numbers[i] > max){
+    max = numbers[i];
+  }
+}
+console.log(max);
+
+//Alternative:僅用sort()無法排序
+console.log(numbers.sort());
+//應用函式如下
+numbers.sort((a, b) => a - b);
+console.log(numbers[4]);
