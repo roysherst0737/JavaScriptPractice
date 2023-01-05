@@ -24,3 +24,10 @@ for (let c = 0; c <= 30; c++) {
     };
 } 
 
+//新增練習
+function test(x) { 
+    while(x < 5) 
+      { x++; } 
+    return x; } 
+    // alert(test(2));
+console.log(test(2));
