@@ -1,0 +1,48 @@
+1. XPLORE1 UI COMPLETION ASSESSMENT
+Question:
+Write HTML, CSS and Javascript code for below requirement:
+The page has background color as pink should have form with
+name "my_form".
+The form will have below labels and controls:
+1. Label "Student Name" followed by textbox, the label should
+be created with span and id is "name_label". The textbox
+should have attribute name mapped to value "student_name"
+and id attribute mapped to value "student_name". Background
+color of this text box and label should be yellow.
+2. Label "Age" followed by textbox, the label should be created
+with span and id is "age_label". The textbox should have
+attribute name mapped to value "student_age" and id
+attribute mapped to value "student_age". Background color of
+this textbox and label should be yellow.
+3. Radio options Gender (m and f). Default selection should be
+m and the name should be "gender".
+4. Label "City" followed by drop down. The drop down should
+have attribute name mapped to value "city" and id should be
+"city". There should be prepopulated cities (options) as Delhi,
+Mumbai, Kolkata, Chennai (all city names are case sensitive).
+5. Label "Hobby" followed by three check boxes. Name and id
+of those three checkboxes will be painting, dancing, sports
+respectively. Display labels after these checkboxes as -
+Dancing, Painting, Sports respectively.
+6. Submit button.
+After submit button, have a div tag to display script results in
+below format:
+"Name:" followed by hidden label with id "name_value"
+"Age:" followed by hidden label with id "age_value"
+"City:" followed by hidden label with id "city_value"
+"Hobbies:" followed by hidden label with id "hobbies_value"
+Next, write Javascript code for below validation (separate
+function for each of these validations):
+1. Name should not contain numbers. Max length is 20
+characters. For validation failure, set "name_value" text as
+"invalid" else set it as per name value.
+2. Age should not contain any non numeric character.  Max
+age is 100. For validation failure, set "age_value" text as
+"invalid" else set it as per age value.
+3. City value should not be empty. For validation failure, set
+"city_value" text as "invalid" else set it as per city value.
+4. Atleast one hobby is selected. For validation failure, set
+"hobbies_value" as "invalid" else set it as per selected hobbies
+in lower case separated by #. E.g if Dancing is selected, then
+value set shouldbe dancing#. If Dancing and Sports is selected,
+then value should be dancing#sports#

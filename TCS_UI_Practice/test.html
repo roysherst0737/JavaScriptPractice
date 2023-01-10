@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <!--Refer javascript here-->
+    <script src="index.js"></script>
+</head>
+
+<body style="background-color: pink">
+
+    <div id="body">
+
+        <!-- <form name="my_form" onsubmit=""> -->
+            <br>
+            <!--Design all html user controls here-->
+            <span style="background-color: yellow">Student Name </span><input type="text"
+                style="background-color: yellow" id="stdname">
+            <br><span style="background-color: yellow">Age </span><input type="text" style="background-color: yellow"
+                id="age">
+            <br>
+            <span>Gender</span> 
+            <label><input type="radio" name="Gender" id="male">M</label>
+            <label><input type="radio" name="Gender" id="female">F</label>
+            <br><span>City</span>
+            <select name="City" id="city">
+                <option value="">Select a City</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Chennai">Chennai</option>
+            </select>
+            <br><span>Hobby</span>
+            <label><input type="checkbox" value="paint" name="hobbies">Painting</label>
+            <label><input type="checkbox" value="dancing" name="hobbies">Dancing</label>
+            <label><input type="checkbox" value="sports" name="hobbies">Sports</label>
+            <br><button type="submit" id="student_submit" onClick="processFormData() ">Submit</button>
+        <!-- </form> -->
+
+        <div>
+            <div id="nameResult">Name:</div>
+            <div id="ageResult">Age:</div>
+            <div id="cityResult">City:</div>
+            <div id="hobbyResult">Hobbies:</div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
