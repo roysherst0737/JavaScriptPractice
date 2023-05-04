@@ -21,3 +21,6 @@ function calculate(arithmetic, radix = 10, a, b) {
 }
 console.log(calculate('+', 10, 9, 1));
 console.log(calculate('+', 2, 1, 1));
+
+// 注意：用Js去運算10進制的小數點運算可能會不準確，範例如下：
+console.log(calculate('+', 10, 0.1, 0.2));
